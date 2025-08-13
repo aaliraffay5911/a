@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AliFi URL Shrinker — V.0.1</title>
+    <link rel="icon" href="images/fav.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+    font-family: "st";
+    src: url("files/SimpleThursday.otf") format("opentype");
+}
+
+        /* Global Styles */
+        body {
+            margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #00eaff, #00ffb7);
+    background-attachment: fixed; /* Makes the background sticky */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            align-items: center;
+            border-bottom: 2px solid #009199;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .header img {
+            width: 120px;
+        }
+
+        /* Menu Button (Three Dashes) */
+        .menu-btn {
+            position: absolute;
+            right: 14px;
+            top: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            color: black;
+            z-index: 1001; /* Ensure it is above other elements */
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #00eaff;
+            padding: 20px;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .sidebar.open {
+            display: block; /* Show the sidebar when the class 'open' is added */
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            font-family: 'st', sans-serif;
+            font-size: 18px;
+            margin: 10px 0;
+            display: block;
+            padding: 10px;
+            background: linear-gradient(to right, #00eaff, #00ffb7);
+            border: 1px dashed black;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background: linear-gradient(to right, #00ffb7, #00eaff);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Section */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            flex-grow: 1;
+            padding: 10px 2%;
+            color: white;
+            text-align: center;
+            flex: 1;
+        }
+
+        .main-container h1 {
+            font-family: 'Permanent Marker', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            -webkit-text-stroke: 0.3px black;
+        }
+
+        .main-container p {
+            font-family: 'st', sans-serif;
+            font-size: 16px;
+            max-width: 90%;
+            margin: 20px auto;
+            color: #004540; /* Matching the exact color as per your earlier instructions */
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-right: 10px;
+            box-shadow: 5px 5px 25px #004540;
+            width: 90%;
+            margin-top: 40px;
+        }
+
+        .form-container h2 {
+            font-family: 'st', sans-serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #004540;
+        }
+
+        .form-container input,
+        .form-container select {
+            width: 90%;
+            height: 45px;
+            padding-left: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 2px solid #00eaff;
+            border-radius: 20px;
+            box-shadow: 1px 1px 7px #004540;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #00eaff;
+            border: 3.5px solid orange;
+            border-radius: 10px;
+            font-family: 'st';
+            font-size: 20px;
+            cursor: pointer;
+            height: 50px;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #00ffb7;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #e8e8e8;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 20px;
+            font-family: arial;
+            border-top: 2px dashed black;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #005052;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer img {
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .form-container h2 {
+                font-size: 24px;
+            }
+
+            .form-container input,
+            .form-container select {
+                font-size: 14px;
+                height: 40px;
+            }
+
+            .form-container input[type="submit"] {
+                font-size: 18px;
+            }
+
+            /* Sidebar on smaller screens */
+            .menu-btn {
+                display: block;
+            }
+
+            .sidebar.open {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-container h1 {
+                font-size: 28px;
+            }
+
+            .main-container p {
+                font-size: 14px;
+            }
+
+            .form-container h2 {
+                font-size: 22px;
+            }
+
+            .form-container input,
+            .form-container select {
+                font-size: 12px;
+                height: 40px;
+            }
+
+            .form-container input[type="submit"] {
+                font-size: 16px;
+            }
+
+            .footer {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Menu Button (Three Dashes) -->
+<button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <a href="#">Log In</a>
+    <a href="#">Sign Up</a>
+    <a href="#">Contact Us</a>
+    <a href="#">About Us</a>
+    <a href="#">Recent Withdrawals</a>
+    <a href="#">Payout Rates</a>
+</div>
+
+<!-- Header Section -->
+<div class="header">
+    <a href="/"><img src="images/logo.png" alt="Logo"></a>
+</div>
+
+<!-- Main Section -->
+<div class="main-container">
+    <h1>AliFi URL Shrinker — V.0.1</h1>
+<p align="justify" style="width:90%; font-family: st; font-size: 25px; margin-left: 1.5vh; margin-right: 1.5vh; margin-top: 40px;">Our platform aims for the provision of secured link/URL shrinking service to avoid the privacy violations at many social media platforms and online services including <font color="#004dc9"><b>FaceBook</b></font>, <font color="green"><b>WhatsApp</b></font>, <font color="#b3027b"><b>InstaGram</b></font>, <font color="#e00034"><b>Pinterest</b></font>, and other <font color="blue"><b>G</font><font color="#e00034">oo</font><font color="blue">g</font><font color="green">l</font><font color="#e00034">e</font></b> services. We are ambitious to secure your URLs, if needed, with passwords. Moreover, custom short-link alias service is also integrated in this tool. If you sign up at our website, you will get access to the user dashboard with premium-level statistics.</p>
+    
+    <!-- Form Container -->
+    <center><div class="form-container">
+        <h2>Shrink URL here!</h2>
+    <center><div style="border-radius: 5px; width:90%; height: auto; background-color: #61ffff; margin-bottom: 20px;"><p>{{reason}}</p></div></center>
+        <form>
+            <input type="text" required placeholder="HTTPS://YourLongURL.com/lengthy-page" name="url" required>
+            <input type="text" placeholder="Optional Alias" name="alias">
+            <input type="password" placeholder="Password (Optional)" name="password">
+            <input type="date" name="expire">
+            <input type="submit" value="Shorten URL">
+        </form>
+    </div></center>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <img src="images/logob.png" alt="Logo">
+    <p>All copyrights are reserved (c) 2026 by <a href="#">M. Ali Raffay Mirza</a></p>
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>

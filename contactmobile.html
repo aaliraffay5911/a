@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — AliFi URL Shrinker</title>
+<link rel="icon" href="images/fav.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+@font-face {
+    font-family: "st";
+    src: url("files/SimpleThursday.otf") format("opentype");
+}
+
+body {
+    background-color: #b8faff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #009199;
+}
+
+.header img {
+    height: 50px;
+}
+
+.menu-btn {
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+/* Sidebar */
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00eaff;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin: 8px 0;
+    text-decoration: none;
+    color: black;
+    font-family: st;
+    border: 1px dashed black;
+    border-radius: 6px;
+    background: linear-gradient(to right, #00eaff, #00ffb7);
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: linear-gradient(to right, #00ffb7, #00eaff);
+}
+
+.sidebar.open {
+    display: block;
+}
+
+/* Form & Content */
+.content {
+    padding: 20px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    width: 60%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 14px;
+    border: 2px solid red;
+    margin-top: 30px;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 30px;
+}
+
+.form input[type="text"],
+.form select,
+.form textarea,
+.form input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 12px;
+    border: 2px dashed blue;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.form textarea {
+    min-height: 200px;
+    font-size: 16px;
+}
+
+.form input[type="submit"] {
+    background-color: white;
+    font-family: st;
+    cursor: pointer;
+    font-size: 24px;
+    border: 2px solid orange;
+}
+
+/* Footer */
+.footer {
+    background-color: #e8e8e8;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-family: st;
+    border-top: 2px dashed black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.footer img {
+    height: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    .header {
+        justify-content: space-between;
+    }
+    .form-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .form input[type="text"],
+    .form select,
+    .form textarea,
+    .form input[type="submit"] {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <a href="/"><img src="images/logo.png" alt="Logo"></a>
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <a href="#">Payout Rates</a>
+    <a href="#">Recent Withdrawals</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Sign Up</a>
+    <a href="#">Log In</a>
+</div>
+
+<!-- Content -->
+<div class="content">
+    <div class="form-container">
+        <h1>Contact Us!</h1>
+        <form class="form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="text" name="title" placeholder="Title" required>
+            <select name="reason" required>
+                <option value="query" selected>Query</option>
+                <option value="complaint">Complaint</option>
+                <option value="partnership">Partnership</option>
+            </select>
+            <textarea placeholder="Write here..."></textarea>
+            <input type="submit" value="Submit Form">
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <img src="images/logob.png" alt="Logo">
+    <p>All Copyrights are Reserved (c) 2026 By <a href="#">M. Ali Raffay Mirza</a></p>
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>

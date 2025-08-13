@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — AliFi URL Shrinker</title>
+<link rel="icon" href="images/fav.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+@font-face {
+    font-family: "st";
+    src: url("files/SimpleThursday.otf") format("opentype");
+}
+
+body {
+    background-color: #b8faff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #009199;
+}
+
+.header img {
+    height: 50px;
+}
+
+.menu-btn {
+    font-size: 26px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+/* Sidebar */
+.sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #00eaff;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    margin: 8px 0;
+    text-decoration: none;
+    color: black;
+    font-family: st;
+    border: 1px dashed black;
+    border-radius: 6px;
+    background: linear-gradient(to right, #00eaff, #00ffb7);
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: linear-gradient(to right, #00ffb7, #00eaff);
+}
+
+.sidebar.open {
+    display: block;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(to right, #00eaff, #00ffb7);
+    color: black;
+    border: 1px dashed black;
+    margin-right: 10px;
+    font-size: 18px;
+    font-family: st, sans-serif;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+.nav-btn:hover {
+    background: linear-gradient(to right, #00ffb7, #00eaff);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Content */
+.content {
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    text-align: center;
+    font-size: 2em;
+}
+
+.section-box {
+    background: white;
+    border: 2px dashed black;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.section-box h2 {
+    font-family: st;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.section-box p {
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    text-align: justify;
+}
+
+/* Footer */
+.footer {
+    background-color: #e8e8e8;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    font-family: st;
+    border-top: 2px dashed black;
+}
+
+.footer img {
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+    .header {
+        justify-content: space-between;
+    }
+    .nav-btn {
+        float: none;
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    .section-box h2 {
+        font-size: 1.4em;
+    }
+    .section-box p {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <a href="/"><img src="images/logo.png"></a>
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+<a href="#">Payout Rates</a>
+<a href="#">Recent Withdrawals</a>
+<a href="#">About Us</a>
+<a href="#">Contact Us</a>
+<a href="#">Sign Up</a>
+<a href="#">Log In</a>
+</div>
+
+<!-- Content -->
+<div class="content">
+    <h1>About Us</h1>
+
+    <div class="section-box">
+        <h2>Our Mission</h2>
+        <p>
+            Welcome to <b>AliFi URL Shrinker</b> — a platform built to reward our community fairly while maintaining transparency and trust.
+            We focus on <b>fair payouts</b>, <b>fast service</b>, and <b>absolute transparency</b>.
+        </p>
+    </div>
+
+    <div class="section-box">
+        <h2>Why We Exist</h2>
+        <p>
+            Many online services profit from user engagement without sharing those earnings. Our goal is to change that. Whether you are a casual sharer or a professional marketer, we give you the opportunity to turn your reach into real income.
+        </p>
+    </div>
+
+    <div class="section-box">
+        <h2>Werkstudent Goal</h2>
+        <p>
+            This platform also supports my personal career goal — securing a <b>Werkstudent</b> position in Germany.
+            Running and growing this service demonstrates my technical skills, entrepreneurial mindset, and dedication to building impactful digital solutions.
+        </p>
+    </div>
+
+    <div class="section-box">
+        <h2>Our Promise</h2>
+        <p>
+            We promise secure, fast, and reliable link shortening with clear analytics and prompt payouts.
+            No hidden conditions, no unfair cuts — just a platform that grows with you.
+        </p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <img src="images/logob.png" alt="Logo">
+    <p>All Copyrights are Reserved (c) 2026 By <a href="#">M. Ali Raffay Mirza</a></p>
+</div>
+
+<script>
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
